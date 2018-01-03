@@ -278,9 +278,14 @@ fi
 # Responder
 if [ -d /opt/Responder ]
 	then
-		cd /opt/Responder
-		out=`git pull`
-		if [ "$out" != 'Already up-to-date.' ] ; then echo "Responder updated." ; else echo "Responder is up to date." ; fi
+		if grep -q SpiderLabs "/opt/Responder/.git/config"; then
+			rm -rf /opt/Responder
+			git clone https://github.com/lgandx/Responder.git /opt/Responder
+		else
+			cd /opt/Responder
+			out=`git pull`
+			if [ "$out" != 'Already up-to-date.' ] ; then echo "Responder updated." ; else echo "Responder is up to date." ; fi
+		fi
 	else
 		git clone https://github.com/SpiderLabs/Responder.git /opt/Responder
 fi
