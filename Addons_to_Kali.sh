@@ -1,6 +1,18 @@
 #!/bin/bash
 
-apt-get -y install gedit git gcc make cmake autoconf comerr-dev libbsd-dev libtalloc-dev libtevent-dev libpopt-dev libpcap-dev python-elixir ldap-utils rwho rsh-client x11-apps finger bdfproxy mitmproxy python-openssl openssl python-capstone python-requests python-m2crypto python-pil python-pip libxml2-dev libxslt-dev
+### Apt Installs
+apt-get -y install gedit git gcc make cmake autoconf comerr-dev libbsd-dev libtalloc-dev libtevent-dev libpopt-dev libpcap-dev python-elixir ldap-utils rwho rsh-client x11-apps finger bdfproxy mitmproxy python-openssl openssl python-capstone python-requests python-m2crypto python-pil python-pip libxml2-dev libxslt-dev bison libbison-dev libncurses5-dev libreadline-dev libsqlite3-dev libyaml-dev neo4j neo4j-client libneo4j-client-dev libneo4j-client11
+
+### PIP Installs
+
+# Selenium
+pip install --upgrade selenium
+pip install --upgrade PyPDF2
+pip install --upgrade olefile
+pip install --upgrade lxml
+pip install --upgrade netaddr
+pip install --upgrade cherrypy
+pip install --upgrade mako
 
 # Backdoor Factory
 out=''
@@ -14,8 +26,7 @@ if [ -d /opt/the-backdoor-factory ]
 		cd /opt/the-backdoor-factory/
 		./install.sh
 fi
-# Selenium
-pip install --upgrade selenium
+
 # HTTP Screenshot
 out=''
 if [ -d /opt/httpscreenshot ]
@@ -111,8 +122,7 @@ if [ -d /opt/recon-ng ]
 	else
 		git clone https://bitbucket.org/LaNMaSteR53/recon-ng.git /opt/recon-ng
 fi
-pip install --upgrade PyPDF2
-pip install --upgrade olefile
+
 # THP2 Scripts
 # Easy P
 if [ -d /opt/Easp-P ]
@@ -325,10 +335,7 @@ if [ ! -d /opt/spiderfoot ]
 		wget http://sourceforge.net/projects/spiderfoot/files/spiderfoot-2.5.1-src.tar.gz/download
 		tar xzvf download
 fi
-pip install --upgrade lxml
-pip install --upgrade netaddr
-pip install --upgrade cherrypy
-pip install --upgrade mako
+
 # WCE
 if [ ! -d /opt/wce ]
 	then
